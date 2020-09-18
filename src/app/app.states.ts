@@ -37,6 +37,6 @@ export const aboutState = {
 
 export const APP_STATES = [
   appState,
-  homeState,
+ // homeState,
   aboutState
 ];
