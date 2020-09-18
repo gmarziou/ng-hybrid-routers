@@ -1,0 +1,28 @@
+
+
+== Generation with Angular CLI
+
+
+== Build legacy app using ui-router
+
+Add ui-router
+
+npm install @uirouter/angular
+npx check-peer-dependencies --install
+
+Add 2 components
+
+ng generate component legacy1
+ng generate component legacy2
+
+== Angular Router
+
+Add a component
+
+ng generate component new1
+
+Add a route to it
+
+
+
+
