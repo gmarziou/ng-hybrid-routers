@@ -1,4 +1,4 @@
 <div ui-view="navbar"></div>
 <hr/>
-<router-outlet></router-outlet>
-<div ui-view="content"></div>
+<router-outlet [hidden]="routerMonitorService.uiRouted"></router-outlet>
+<div ui-view="content" [hidden]="!routerMonitorService.uiRouted"></div>

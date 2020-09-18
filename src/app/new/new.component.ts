@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterMonitorService } from '../router-monitor.service';
 
 @Component({
   selector: 'app-new',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routerMonitorService: RouterMonitorService) {
+    routerMonitorService.uiRouted = false;
+  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterMonitorService } from '../router-monitor.service';
 
 @Component({
   selector: 'home',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routerMonitorService: RouterMonitorService) {
+    routerMonitorService.uiRouted = true;
+  }
 
   ngOnInit(): void {
   }
