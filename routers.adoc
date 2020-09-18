@@ -21,7 +21,7 @@ Create ui-router states for home and about
 
 Add a component
 
-ng generate component new1
+ng generate component new
 
 Add a route to it
 
