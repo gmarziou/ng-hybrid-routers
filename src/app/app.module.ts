@@ -2,19 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 //import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
 import { Category, UIRouter, UIRouterModule, UIView } from '@uirouter/angular';
 import { APP_STATES } from './app.states';
 
-import { Legacy1Component } from './legacy1/legacy1.component';
-import { Legacy2Component } from './legacy2/legacy2.component';
+import { MainComponent } from './main/main.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    Legacy1Component,
-    Legacy2Component
+    MainComponent,
+    NavbarComponent,
+    HomeComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { Legacy2Component } from './legacy2/legacy2.component';
 
   ],
   providers: [],
-  bootstrap: [UIView]
+  bootstrap: [MainComponent]
 })
 export class AppModule { }
 

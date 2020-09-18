@@ -1,6 +1,6 @@
-import { AppComponent } from './app.component';
-import { Legacy1Component } from './legacy1/legacy1.component';
-import { Legacy2Component } from './legacy2/legacy2.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 /**
  * This is the parent state for the entire application.
@@ -10,27 +10,33 @@ import { Legacy2Component } from './legacy2/legacy2.component';
  * 2) Provide a viewport (ui-view) for a substate to plug into
  */
 export const appState = {
+  abstract: true,
   name: 'app',
-  //redirectTo: 'legacy1',
-  component: AppComponent,
+  views: {
+    'navbar@': { component: NavbarComponent }
+  },
 };
 
-export const legacy1State = {
+export const homeState = {
   parent: 'app',
-  name: 'legacy1',
-  url: '/legacy1',
-  component: Legacy1Component,
+  name: 'home',
+  url: '/',
+  views: {
+    'content@': { component: HomeComponent }
+  }
 };
 
-export const legacy2State = {
+export const aboutState = {
   parent: 'app',
-  name: 'legacy2',
-  url: '/legacy2',
-  component: Legacy2Component,
+  name: 'about',
+  url: '/about',
+  views: {
+    'content@': { component: AboutComponent }
+  }
 };
 
 export const APP_STATES = [
   appState,
-  legacy1State,
-  legacy2State
+  homeState,
+  aboutState
 ];

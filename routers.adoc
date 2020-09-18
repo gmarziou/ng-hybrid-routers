@@ -12,8 +12,10 @@ npx check-peer-dependencies --install
 
 Add 2 components
 
-ng generate component legacy1
-ng generate component legacy2
+ng generate component home
+ng generate component about
+
+Create ui-router states for home and about
 
 == Angular Router
 
