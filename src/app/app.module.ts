@@ -12,6 +12,8 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EmptyUiViewComponent } from './empty-ui-view/empty-ui-view.component';
+import { EmptyRouterOutletComponent } from './empty-router-outlet/empty-router-outlet.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     AboutComponent,
     NewComponent,
+    EmptyUiViewComponent,
+    EmptyRouterOutletComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { EmptyUiViewComponent } from './empty-ui-view/empty-ui-view.component';
 
 /**
  * This is the parent state for the entire application.
@@ -35,8 +36,18 @@ export const aboutState = {
   }
 };
 
+export const newState = {
+  parent: 'app',
+  name: 'new',
+  url: '/new',
+  views: {
+    'content@': { component: EmptyUiViewComponent}
+  }
+};
+
 export const APP_STATES = [
   appState,
   homeState,
-  aboutState
+  aboutState,
+  newState
 ];
