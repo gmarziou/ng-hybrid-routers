@@ -36,10 +36,13 @@ export const aboutState = {
   }
 };
 
-export const newState = {
+/**
+ * For unknown paths (probably Angular routes), we display an empty ui-view
+ */
+export const unknownState = {
   parent: 'app',
   name: 'new',
-  url: '/new',
+  url: '/**',
   views: {
     'content@': { component: EmptyUiViewComponent}
   }
@@ -49,5 +52,5 @@ export const APP_STATES = [
   appState,
   homeState,
   aboutState,
-  newState
+  unknownState
 ];
