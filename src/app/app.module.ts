@@ -30,7 +30,8 @@ import { EmptyRouterOutletComponent } from './empty-router-outlet/empty-router-o
     AppRoutingModule,
     UIRouterModule.forRoot({
       states: APP_STATES,
-      useHash: false,
+      // Let's use # to use same URLs as our ui-router states
+      useHash: true,
       config: routerConfigFn,
     }),
 
@@ -42,5 +43,4 @@ export class AppModule { }
 
 function routerConfigFn(router: UIRouter) {
   router.trace.enable(Category.TRANSITION);
-  //router.plugin(Visualizer);
 }

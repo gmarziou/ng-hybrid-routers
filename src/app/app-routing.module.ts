@@ -5,7 +5,8 @@ import { NewComponent } from './new/new.component';
 
 const routes: Routes = [
   {path: 'new', component: NewComponent},
-  {path: 'about', component: EmptyRouterOutletComponent},
+  // all unknown routes (probably ui-router ones) are mapped to an empty template to emlpty router-outlet
+  {path: '**', component: EmptyRouterOutletComponent},
 ];
 
 @NgModule({
