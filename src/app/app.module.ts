@@ -30,7 +30,7 @@ import { EmptyRouterOutletComponent } from './empty-router-outlet/empty-router-o
     AppRoutingModule,
     UIRouterModule.forRoot({
       states: APP_STATES,
-      useHash: true,
+      useHash: false,
       config: routerConfigFn,
     }),
 
