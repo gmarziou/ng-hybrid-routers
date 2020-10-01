@@ -30,18 +30,33 @@ export const homeState = {
 export const aboutState = {
   parent: 'app',
   name: 'about',
-  url: '/about/:id',
+  url: '/about/:origin',
   views: {
     'content@': { component: AboutComponent }
   }
 };
 
 /**
- * For unknown paths (probably Angular routes), we display an empty ui-view
+ * Empty ui-view for state equivalent to an Angualr route.
  */
-export const unknownState = {
+export const newState = {
   parent: 'app',
   name: 'new',
+  url: '/new/:origin',
+  views: {
+    'content@': { component: EmptyUiViewComponent}
+  }
+};
+
+
+/**
+ * For unknown paths (probably Angular routes), we display an empty ui-view
+ *
+ * This is our catch-all state. 
+ */
+export const catchAllState = {
+  parent: 'app',
+  name: 'unknown',
   url: '/**',
   views: {
     'content@': { component: EmptyUiViewComponent}
@@ -52,5 +67,6 @@ export const APP_STATES = [
   appState,
   homeState,
   aboutState,
-  unknownState
+  newState,
+  catchAllState
 ];

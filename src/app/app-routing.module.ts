@@ -6,7 +6,7 @@ import { NewComponent } from './new/new.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: HomeRedirectComponent},
-  {path: 'new', component: NewComponent},
+  {path: 'new/:origin', component: NewComponent},
   // all unknown routes (probably ui-router ones) are mapped to an empty template to emlpty router-outlet
   {path: '**', component: EmptyRouterOutletComponent},
 ];

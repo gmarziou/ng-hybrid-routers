@@ -7,13 +7,13 @@ import { StateService } from '@uirouter/angular';
 })
 export class AboutComponent implements OnInit {
 
-  id: string;
+  origin: string;
 
   constructor(private stateService: StateService,
   ) { }
 
   ngOnInit(): void {
-    this.id = this.stateService.params['id'];
+    this.origin = this.stateService.params['origin'];
   }
 
 }

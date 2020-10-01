@@ -6,9 +6,11 @@ This is useful to progressively migrate to Angular Router a legacy ng2+ app that
 
 This app consists in a navbar that navigates within 3 screens:
 
-* "home": managed by UI-Router
-* "about": managed by UI-Router with a parameter
-* "new": managed by Angular Router
+* link:src/app/home["home"]: managed by UI-Router
+* link:src/app/about["about"]: managed by UI-Router with a parameter
+* link:src/app/new["new"]: managed by Angular Router
+
+image::screenshot.png[]
 
 Both routers are configured to use the same URL naming with `#`.
 
@@ -18,9 +20,9 @@ For UI-Router, there is a state definition that renders an empty ui-view for unk
 
 [source,typescript]
 ----
-export const unknownState = {
+export const catchAllState = {
   parent: 'app',
-  name: 'new',
+  name: 'unknown',
   url: '/**',
   views: {
     'content@': { component: EmptyUiViewComponent}
@@ -35,10 +37,10 @@ Similarly, for Angular Router, there is a route definition that renders an empty
   {path: '**', component: EmptyRouterOutletComponent},
 ----
 
-As a consequence of this trick, links must use directives from both routers:
+As a consequence of this trick, links must use directives from both routers in order to notify them:
 
-* uiSref and uiParams for UI-Router
-* routerLink and routerLinkActive for Angular Router
+* `uiSref` and `uiParams` for UI-Router
+* `routerLink` and `routerLinkActive` for Angular Router
 
 [source,html]
 ----
@@ -47,12 +49,25 @@ As a consequence of this trick, links must use directives from both routers:
 
 See link:src/app/navbar/navbar.component.html[navbar.component.html]
 
-Of course, this is only a temporary trick and all traces of UI-Router will get removed once al states have been converted to Angular routes.
+Similarly to links that must notify both routers, programmatic navigation should also do the same:
+
+[source,typescript]
+----
+  goToAbout(): void {
+    this.stateService.go('about', { origin: 'button (New)' }, { reload: true });
+    this.router.navigate(['/about']);
+  }
+----
 
 
-## Development server
+Another annoyance is that unknown routes do not update URL, so we get +++http://localhost:4200/#/**+++
+ which prevents deep linking, so it's better to define full states in UI-Router for Angular routes and to limit the use of `/**` catch-all state. See link:src/app/app.states.ts[app.states.ts]
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+Of course, this is only a temporary hack and all traces of UI-Router will get removed once al states have been converted to Angular routes but it helps focusing on one change and then moving to next one rather than using a big bang approach and being overwhelmed by navigation bugs.
+
+== Development server
+
+This project was generated with https://github.com/angular/angular-cli:[Angular CLI] version 10.1.2.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
