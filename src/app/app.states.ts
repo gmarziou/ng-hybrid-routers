@@ -30,7 +30,7 @@ export const homeState = {
 export const aboutState = {
   parent: 'app',
   name: 'about',
-  url: '/about',
+  url: '/about/:id',
   views: {
     'content@': { component: AboutComponent }
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '@uirouter/angular';
 
 @Component({
   selector: 'about',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  id: string;
+
+  constructor(private stateService: StateService,
+  ) { }
 
   ngOnInit(): void {
+    this.id = this.stateService.params['id'];
   }
 
 }

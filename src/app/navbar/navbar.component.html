@@ -1,5 +1,5 @@
 <nav>
     <a uiSref="home" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home (UI Router)</a> |
-    <a uiSref="about" routerLink="/about" routerLinkActive="active">About (UI Router)</a> |
+    <a uiSref="about" [uiParams]="{ id: 'hello' }" routerLink="/about" routerLinkActive="active">About (UI Router)</a> |
     <a uiSref="new" routerLink="/new" routerLinkActive="active">New (Angular Router)</a>
 </nav>
